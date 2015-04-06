@@ -1,6 +1,8 @@
 
 require "matrix"
 
+#foo
+
 def kmeans(arr, axis, k)
 
 	c_arr = []

@@ -7,9 +7,9 @@ def kmeans(arr, k)
 	l_arr = Array.new(arr.length, 0)
 
 	c_arr = arr.sample(k)
-
+	
 	50.times do 
-
+		
 		c_tmp_arr = Array.new(k){Array.new(arr[0].length, 0)}
 
 		arr.each_with_index do |a, idx_a|

@@ -34,7 +34,7 @@ var kmeans = function(arr, k){
 	}
 
 	//----------------ここからkmeans法--------------
-	for (var i = 0; i < 10; i++){
+	for (var i = 0; i < 50; i++){
 		var c_tmp_arr = [];
 		for (var j = 0; j < k; j++){
 			var a = [];

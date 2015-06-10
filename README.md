@@ -1,9 +1,10 @@
 
 
-###kmeans法
-k値と行列をを引数に渡すと、行列の各要素にラベルをつけて返します
+###k-means
 
-####サンプル
+When you pass the K value and matrix to this function, return the matrix with labels.
+
+####Sample
 		
 		#Ruby
 		arr = Matrix.build(20, 3){rand(1..50)}.to_a

@@ -28,13 +28,13 @@ def kmeans(arr, k)
 				end
 			end
 			
-			#基準座標更新用
+			#for updating criterion axis
 			c_tmp_arr[min_k] = c_tmp_arr[min_k].zip(a).map{|f, s| f + s}
-			#ラベル値更新
+			#update label number
 			l_arr[idx_a] = min_k
 		end
 		
-		#中心点の更新
+		#update center
 		c_tmp_arr.each_with_index do |v, idx|
 			new_c = v.map{|a| a / l_arr.count(idx)}	
 			c_arr[idx] = new_c
@@ -49,11 +49,11 @@ end
 
 if __FILE__ == $0
 	
-	#	サンプルコード
+	#	sample
 	#
-	#	引数
-	#		arr: n次元の行列
-	#		k: 分割する数
+	#	argments
+	#		arr: N-dim arrray
+	#		k: number of split
 	#
 	
 	arr = Matrix.build(20, 3){rand(1..50)}.to_a

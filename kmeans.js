@@ -10,7 +10,7 @@ var kmeans = function(arr, k){
 	var col = arr[0].length;
 	var area = row * col;
 	
-	//---------------l_arrの初期化---------------
+	//---------------initialize l_arr---------------
 
 	for (var i = 0; i < row; i++){
 		var a = [];
@@ -20,7 +20,7 @@ var kmeans = function(arr, k){
 		l_arr.push(a);
 	}
 
-	//---------------初期基準点の決定---------------
+	//---------------decide of initial point---------------
 	var index_arr = [];
 	for (var i = 0; i < row; i++){
 		index_arr.push(i);	
@@ -33,7 +33,7 @@ var kmeans = function(arr, k){
 		c_arr.push(new_c);
 	}
 
-	//----------------ここからkmeans法--------------
+	//----------------kmeans--------------
 	for (var i = 0; i < 50; i++){
 		var c_tmp_arr = [];
 		for (var j = 0; j < k; j++){
@@ -49,7 +49,7 @@ var kmeans = function(arr, k){
 			var min_k = 0;
 			var min_dst = -1;
 			
-	//-----------------中心点までの距離の計算-------------
+	//-----------------caluclate distance of center-------------
 			for (var l = 0; l < k; l++){
 				var dst = 0;
 				var c_a = c_arr[l];
@@ -58,7 +58,7 @@ var kmeans = function(arr, k){
 					var c_v = Math.sqrt(Math.pow(diff, 2));
 					dst += c_v;
 				}
-	//------------------min_dstよりも近い(最小距離)だったら更新------------
+	//------------------update if shorter than min_dst------------
 				if (min_dst > dst || min_dst < 0){
 					min_dst = dst;
 					min_k = l;
@@ -66,7 +66,7 @@ var kmeans = function(arr, k){
 
 			}
 
-	//------------------min_k番目のc_tmp_arrの更新------------
+	//------------------update c_tmp_arr------------
 			var c_tmp_a = c_tmp_arr[min_k];
 			for (var n = 0; n < k; n++){
 				c_tmp_a[n] += a[n];
@@ -75,7 +75,7 @@ var kmeans = function(arr, k){
 			c_tmp_arr[min_k] = c_tmp_a;
 			l_arr[j] = min_k;
 		}	
-		//----------------各ラベルの個数を数える--------------
+		//----------------count elements of each labels--------------
 		var num_of_labels = {};
 
 		for (var j = 0; j < row; j++){
@@ -87,7 +87,7 @@ var kmeans = function(arr, k){
 			}
 			
 		}
-		//中心点の更新
+		//update center
 		for (var o = 0; o < k; o++){
 			var new_c = [];
 			for (var p = 0; p < col; p++){
